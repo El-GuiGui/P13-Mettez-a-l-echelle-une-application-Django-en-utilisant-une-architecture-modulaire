@@ -14,17 +14,20 @@ Orange County Lettings est un site web permettant de gérer des profils et des l
 
 ## Développement Local
 
-### Étapes pour macOS / Linux
 
 #### 1. Cloner le Repository
 ```bash
 cd /path/to/put/project/in
+```
+```bash
 git clone https://github.com/OpenClassrooms-Student-Center/Python-OC-Lettings-FR.git
 ```
 
 #### 2. Créer un Environnement Virtuel
 ```bash
 cd /path/to/Python-OC-Lettings-FR
+```
+```bash
 python -m venv venv
 ```
 
