@@ -13,7 +13,8 @@ env
 .pytest_cache
 profiles/migrations/__pycache__/
 lettings/migrations/__pycache__/
-
+test_settings.py
+test_oc_lettings_site.sqlite3
 
 # all .py files
 !.py
