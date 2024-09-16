@@ -3,6 +3,16 @@ from django.contrib.auth.models import User
 
 
 class Migration(migrations.Migration):
+    """
+    Migration pour créer le modèle 'Profile' et associer une table existante.
+
+    Cette migration ne crée pas la table en base de données, mais définit l'état du modèle 'Profile' avec les champs suivants:
+    - id: Clé primaire auto-incrémentée.
+    - favorite_city: Champ de type CharField pour stocker la ville préférée de l'utilisateur.
+    - user: Relation OneToOne avec le modèle User, supprimée en cascade si l'utilisateur est supprimé.
+
+    La table associée à ce modèle est 'oc_lettings_site_profile'.
+    """
 
     initial = True
 

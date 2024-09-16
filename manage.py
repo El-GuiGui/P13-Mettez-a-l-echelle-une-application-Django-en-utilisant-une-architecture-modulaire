@@ -3,7 +3,21 @@ import sys
 
 
 def main():
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'oc_lettings_site.settings')
+    """
+    Configure l'environnement Django et exécute les commandes de gestion.
+
+    Définit la variable d'environnement des paramètres Django, puis tente
+    d'importer et d'exécuter 'execute_from_command_line' pour traiter les
+    commandes de la ligne de commande.
+
+    Raises:
+        ImportError: Si Django n'est pas installé ou n'est pas disponible dans
+        le PYTHONPATH, une exception est levée.
+
+    Returns:
+        None
+    """
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "oc_lettings_site.settings")
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -15,5 +29,5 @@ def main():
     execute_from_command_line(sys.argv)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

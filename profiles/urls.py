@@ -1,6 +1,13 @@
 from django.urls import path
 from . import views
 
+
+"""
+Définit les URL pour l'application 'profiles'.
+
+Ces URL's permettent d'accéder à la vue principale des profils et la vue détaillée pour un profil spécifique.
+"""
+
 app_name = "profiles"
 
 urlpatterns = [

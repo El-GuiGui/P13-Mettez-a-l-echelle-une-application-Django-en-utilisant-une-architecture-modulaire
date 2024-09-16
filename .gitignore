@@ -11,7 +11,11 @@ alembic/
 .env
 env
 .pytest_cache
+!profiles/migrations/__pycache__/
+!lettings/migrations/__pycache__/
+
 
 # all .py files
 !.py
-
+!profiles/migrations/
+!lettings/migrations/
