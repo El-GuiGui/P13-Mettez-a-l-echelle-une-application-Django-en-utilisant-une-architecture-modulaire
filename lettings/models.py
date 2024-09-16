@@ -6,7 +6,8 @@ from django.core.validators import MaxValueValidator, MinLengthValidator
 
 class Address(models.Model):
     """
-    Représente une adresse avec les détails : le numéro, la rue, la ville, l'état, le code postal, et le code ISO du pays.
+    Représente une adresse avec les détails :
+    le numéro, la rue, la ville, l'état, le code postal, et le code ISO du pays.
 
     Attributes:
         number (PositiveIntegerField): Le numéro de l'adresse, limité à 4 chiffres.
@@ -33,6 +34,7 @@ class Address(models.Model):
 
     class Meta:
         db_table = "oc_lettings_site_address"
+        verbose_name_plural = "Addresses"
 
 
 class Letting(models.Model):
