@@ -5,30 +5,42 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+    """
+    Migration pour modifier les champs du modèle 'Address' existant.
+
+    Cette migration ne crée pas de nouvelles tables en base de données,
+    mais modifie les propriétés des champs du modèle 'Address' dans la table 'lettings_address':
+
+    - country_iso_code: Champ de type CharField, modifié pour exiger une longueur exacte de 3 caractères.
+    - number: Champ de type PositiveIntegerField, limité à un maximum de 9999.
+    - state: Champ de type CharField, modifié pour exiger une longueur exacte de 2 caractères.
+    - zip_code: Champ de type PositiveIntegerField, limité à un maximum de 99999.
+
+    """
 
     dependencies = [
-        ('lettings', '0001_initial'),
+        ("lettings", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='address',
-            name='country_iso_code',
+            model_name="address",
+            name="country_iso_code",
             field=models.CharField(max_length=3, validators=[django.core.validators.MinLengthValidator(3)]),
         ),
         migrations.AlterField(
-            model_name='address',
-            name='number',
+            model_name="address",
+            name="number",
             field=models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(9999)]),
         ),
         migrations.AlterField(
-            model_name='address',
-            name='state',
+            model_name="address",
+            name="state",
             field=models.CharField(max_length=2, validators=[django.core.validators.MinLengthValidator(2)]),
         ),
         migrations.AlterField(
-            model_name='address',
-            name='zip_code',
+            model_name="address",
+            name="zip_code",
             field=models.PositiveIntegerField(validators=[django.core.validators.MaxValueValidator(99999)]),
         ),
     ]
