@@ -51,4 +51,4 @@ def trigger_error(request):
     Raises:
         ValueError: Erreur volontaire déclenchée pour simuler une erreur serveur.
     """
-    raise ValueError("Erreur serveur pour tester la page 500")
+    raise ValueError("Erreur serveur pour tester la page d'erreur 500")
