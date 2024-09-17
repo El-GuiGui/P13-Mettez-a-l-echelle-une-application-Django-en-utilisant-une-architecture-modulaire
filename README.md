@@ -126,3 +126,17 @@ Ouvrez [http://localhost:8000/admin](http://localhost:8000/admin) et connectez-v
 - **Mot de passe**: `Abc1234!`
 
 
+## Déploiement et utilisation 
+
+Pour un usage en production avec un Debug a False pensez au :
+  ```bash
+  python manage.py collectstatic
+  ```
+
+et à la configuration du serveur pour l'utilisation des statics.
+
+
+On peut éventuellement utilisé :
+  ```bash
+  python manage.py runserver --insecure
+  ```

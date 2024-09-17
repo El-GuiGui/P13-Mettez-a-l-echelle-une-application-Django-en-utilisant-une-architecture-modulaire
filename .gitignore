@@ -16,6 +16,7 @@ lettings/migrations/__pycache__/
 test_settings.py
 test_oc_lettings_site.sqlite3
 oc_lettings_site/staticfiles/*
+.open
 
 # all .py files
 !.py
