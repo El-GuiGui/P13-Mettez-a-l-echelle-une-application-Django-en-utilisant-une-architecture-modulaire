@@ -144,8 +144,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "oc_lettings_site", "static"),
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-WHITENOISE_MANIFEST_STRICT = False
 
 HANDLER404 = "oc_lettings_site.views.custom_404_view"
 HANDLER500 = "oc_lettings_site.views.custom_500_view"
