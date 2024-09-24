@@ -14,7 +14,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . /
 
 # Collecter les fichiers statiques (CSS, JS)
-RUN python manage.py collectstatic --noinput --clear
+RUN python manage.py collectstatic --noinput && gunicorn oc_lettings_site.wsgi
+
 
 
 # Exposer le port 8000 pour accéder à l'application
