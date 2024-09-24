@@ -1,0 +1,15 @@
+venv
+env
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.env
+.git
+.pytest_cache
+autres/
+env/
+.coverage
+alembic.ini
+alembic/
+test_settings.py
