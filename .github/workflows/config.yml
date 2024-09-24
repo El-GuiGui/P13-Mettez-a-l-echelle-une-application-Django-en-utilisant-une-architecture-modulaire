@@ -21,7 +21,9 @@ jobs:
         run: |
           python -m venv venv
           source venv/bin/activate
+          pip install --upgrade pip
           pip install -r requirements.txt
+          pip install flake8 pyflakes --upgrade 
 
       - name: Lint with flake8
         run: |
