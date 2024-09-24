@@ -21,11 +21,11 @@ ARG DEBUG
 ARG SENTRY_DSN
 
 # Collecter les fichiers statiques (CSS, JS)
-RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput --clear
 
 
 # Exposer le port 8000 pour accéder à l'application
 EXPOSE 8000
 
 # Commande pour démarrer l'application Django
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["gunicorn", "--workers=3", "--bind=0.0.0.0:8000", "oc_lettings_site.wsgi:application"]
