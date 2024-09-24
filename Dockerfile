@@ -21,7 +21,7 @@ ARG DEBUG
 ARG SENTRY_DSN
 
 # Collecter les fichiers statiques (CSS, JS)
-RUN python manage.py collectstatic --noinput --clear
+RUN python manage.py collectstatic --noinput
 
 
 # Exposer le port 8000 pour accéder à l'application
