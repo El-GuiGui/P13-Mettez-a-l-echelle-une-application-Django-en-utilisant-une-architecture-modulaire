@@ -15,6 +15,8 @@ COPY . /
 
 # Collecter les fichiers statiques (CSS, JS)
 RUN python manage.py collectstatic --noinput
+RUN python manage.py collectstatic --noinput --clear
+
 
 # Exposer le port 8000 pour accéder à l'application
 EXPOSE 8000
