@@ -1,5 +1,6 @@
 # Utiliser l'image de base python:3.9-alpine
 FROM python:3.9-alpine
+
 ENV PYTHONUNBUFFERED=1
 
 # Définir le répertoire de travail dans le conteneur
