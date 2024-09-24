@@ -25,6 +25,9 @@ jobs:
           pip install -r requirements.txt
           pip install flake8 pyflakes --upgrade 
 
+      - name: Set environment variables
+        run: echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> $GITHUB_ENV
+
       - name: Lint with flake8
         run: |
           source venv/bin/activate
