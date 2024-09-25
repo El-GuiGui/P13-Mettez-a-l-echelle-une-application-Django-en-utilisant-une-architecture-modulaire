@@ -152,7 +152,7 @@ HANDLER500 = "oc_lettings_site.views.custom_500_view"
 # Charger les variables d'environnement depuis .env
 load_dotenv()
 
-# Initialise Sentry
+# Initialise Sentry :
 sentry_sdk.init(
     dsn=os.getenv("SENTRY_DSN"),
     integrations=[DjangoIntegration()],
