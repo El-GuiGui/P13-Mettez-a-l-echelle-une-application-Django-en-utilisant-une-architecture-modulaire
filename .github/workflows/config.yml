@@ -56,8 +56,8 @@ jobs:
       - name: Build and tag Docker image
         run: |
           docker build \
-            --build-arg SECRET_KEY=${{ secrets.SECRET_KEY }} \
-            --build-arg SENTRY_DSN=${{ secrets.SENTRY_DSN }} \
+            --build-arg SECRET_KEY="${{ secrets.SECRET_KEY }}" \
+            --build-arg SENTRY_DSN="${{ secrets.SENTRY_DSN }}" \
             -t ${{ secrets.DOCKER_USERNAME }}/oc_lettings:latest .
           docker tag ${{ secrets.DOCKER_USERNAME }}/oc_lettings:latest ${{ secrets.DOCKER_USERNAME }}/oc_lettings:${{ github.sha }}
 
