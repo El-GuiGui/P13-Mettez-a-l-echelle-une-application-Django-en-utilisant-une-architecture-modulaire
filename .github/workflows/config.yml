@@ -77,4 +77,3 @@ jobs:
           deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
           image-url: ${{ secrets.DOCKER_USERNAME }}/oc_lettings:${{ github.sha }}
           render-api-key: ${{ secrets.RENDER_API_KEY }}
-          wait-for-deployment: true
