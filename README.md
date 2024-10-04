@@ -70,6 +70,7 @@ python manage.py runserver
 ```
 Ouvrez [http://localhost:8000](http://localhost:8000) dans un navigateur pour confirmer que le site fonctionne et qu'il est possible de naviguer à travers les profils et les locations.
 
+Pensez à modifier le DEBUG MODE a "True" dans le settings.py de l'app principale pour utiliser l'environnement local sans avoir de soucis avec les fichiers statics ...
 ## Linting
 Pour vérifier la qualité du code avec Flake8:
 ```bash
