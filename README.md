@@ -2,6 +2,14 @@
 
 # Orange County Lettings
 
+**URL :**
+Documentation technique :
+https://orange-county-lettings-documentation-lg.readthedocs.io/fr/latest/index.html
+
+Repo documentation :
+https://github.com/El-GuiGui/Orange-County-Lettings-Documentation-LG
+
+
 ## Résumé
 Orange County Lettings est un site web permettant de gérer des profils et des locations. Cette documentation couvre la configuration pour le développement local, le linting, les tests unitaires, et l'interaction avec la base de données et le panneau d'administration.
 
