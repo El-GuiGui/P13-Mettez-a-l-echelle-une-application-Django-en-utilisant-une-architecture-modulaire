@@ -3,10 +3,13 @@
 # Orange County Lettings
 
 **URL :**
+
 Documentation technique :
+
 https://orange-county-lettings-documentation-lg.readthedocs.io/fr/latest/index.html
 
 Repo documentation :
+
 https://github.com/El-GuiGui/Orange-County-Lettings-Documentation-LG
 
 
@@ -149,3 +152,45 @@ On peut éventuellement utilisé :
   ```bash
   python manage.py runserver --insecure
   ```
+
+
+
+
+
+## Déploiement
+
+Le déploiement de ce projet se fait en suivant un pipeline CI/CD via GitHub Actions. Le processus garantit que les tests, le linting, et la conteneurisation de l'application sont effectués correctement avant tout déploiement en production. 
+
+Le site est ensuite déployé sur la plateforme Render en utilisant l'image Docker générée.
+
+### Prérequis
+
+- Un compte sur [Docker Hub](https://hub.docker.com/).
+- Un compte sur [Render](https://render.com/).
+- Les variables d'environnement configurées dans GitHub Secrets (ex : `DOCKER_USERNAME`, `DOCKER_PASSWORD`, `RENDER_API_KEY`, `RENDER_DEPLOY_HOOK`, `SENTRY_DSN`, `SECRET_KEY`, etc.).
+- L'application est configurée pour fonctionner avec les fichiers statiques et le service de gestion des erreurs Sentry.
+
+### Pipeline CI/CD
+
+Le déploiement est automatisé grâce à un fichier `config.yml` dans le répertoire `.github/workflows/` qui déclenche un ensemble de jobs à chaque push sur la branche `main` :
+
+1. **Tests et Linting :** Le pipeline commence par exécuter un ensemble de tests unitaires et un linting avec flake8. Si cette étape échoue, le processus de déploiement est arrêté.
+2. **Build et Push Docker :** Si les tests réussissent, l'image Docker de l'application est construite avec un tag correspondant au hash du commit (`github.sha`) et est ensuite poussée sur Docker Hub. Une image `latest` est également poussée à chaque mise à jour.
+3. **Déploiement sur Render :** Après que l'image Docker est poussée, un hook de déploiement est déclenché pour Render, spécifiant l'URL de l'image Docker à utiliser pour le déploiement en production.
+
+### Déploiement manuel local
+
+Pour tester localement en utilisant l'image Docker, vous pouvez exécuter les commandes suivantes :
+
+1. **Récupérer l'image Docker depuis Docker Hub :**
+   ```bash
+   docker pull ggui/oc_lettings:latest
+
+
+2. **Lancer l'image et accèder au site :**
+
+   ```bash
+   docker run -d -p 8000:8000 ggui/oc_lettings:latest
+
+
+
