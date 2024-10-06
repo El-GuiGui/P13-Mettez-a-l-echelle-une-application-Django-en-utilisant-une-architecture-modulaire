@@ -193,4 +193,31 @@ Pour tester localement en utilisant l'image Docker, vous pouvez exécuter les co
    docker run -d -p 8000:8000 ggui/oc_lettings:latest
 
 
+3. **Accéder à l'application :**
+
+Ouvrez [http://localhost:8000](http://localhost:8000) dans votre navigateur pour voir l'application fonctionner en local.
+
+### Variables d'environnement
+
+Les secrets et variables sensibles ne doivent jamais être stockés en dur dans le code source. GitHub Secrets et les variables d'environnement sont utilisés pour sécuriser les informations sensibles telles que :
+
+- `SECRET_KEY`: La clé secrète Django.
+- `SENTRY_DSN`: Le DSN pour la surveillance des erreurs via Sentry.
+- `DOCKER_USERNAME` et `DOCKER_PASSWORD`: Pour la connexion à Docker Hub.
+- `RENDER_API_KEY` et `RENDER_DEPLOY_HOOK`: Utilisés pour déclencher le déploiement sur Render.
+
+### Suivi des erreurs et gestion des fichiers statiques
+
+- **Sentry** : Utilisé pour suivre les erreurs en temps réel pendant et après le déploiement. Les erreurs capturées apparaîtront dans votre tableau de bord Sentry.
+- **Whitenoise** : Utilisé pour gérer les fichiers statiques dans l'environnement de production. Configuré  dans le fichier `settings.py`.
+
+### Automatisation du déploiement
+
+Le déploiement est entièrement automatisé via le pipeline CI/CD, garantissant que chaque modification poussée sur la branche `main` entraîne :
+
+- Un cycle complet de tests et de linting.
+- La génération et le déploiement d'une image Docker à jour.
+- Le déploiement automatique sur Render, rendant l'application accessible publiquement.
+
+En cas d'échec à une quelconque étape du processus, le déploiement est **annulé**, et l'image Docker n'est ni poussée ni déployée.
 
